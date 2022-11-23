@@ -80,6 +80,7 @@ export const theme = {
       minus2: '#DDE0E4',
       minus1: '#C6CCD2',
       zero: '#ADB5BD',
+      plus1: '#E8E8E8',
     },
     black: {
       minus4: '#262626',

@@ -10,6 +10,7 @@ import {
   SubmitWrapper,
   Wrapper,
 } from "../../common/styled";
+import backImage from "./alumnos2.jpeg";
 import styled from "styled-components";
 
 export interface LoginRequest {
@@ -32,12 +33,13 @@ export const Auth = ({ children }: AuthProps) => {
   const [error, setError] = useState(false);
 
   const loginRequest = async (data: LoginRequest) => {
-    const response = await axios.post<LoginResponse>(`${API_URL}/login`, {
-      username: data.username,
-      password: data.password,
-    });
+    // const response = await axios.post<LoginResponse>(`${API_URL}/login`, {
+    //   username: data.username,
+    //   password: data.password,
+    // });
 
-    login({ allowed: response.data.allowed });
+    // login({ allowed: response.data.allowed });
+    login({ allowed: true });
   };
 
   const onLoginSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -62,31 +64,31 @@ export const Auth = ({ children }: AuthProps) => {
       <LoginCardWrapper>
         <LoginCard method="POST" onSubmit={onLoginSubmit}>
           <LogoWrapper>
-            <Logo />
+            <h2>Sistema Exalumnos Ciencia de la Computacion UNSA</h2>
           </LogoWrapper>
           <StyledLabel>
-            <StyledHelper>User</StyledHelper>
+            <StyledHelper>Usuario</StyledHelper>
             <StyledInput
               type="email"
               value={userEmail}
               onChange={(event) => setUserEmail(event.target.value)}
-              placeholder="huginn@ravn.co"
+              placeholder="ernesto@unsa.edu.pe"
               required
             />
           </StyledLabel>
           <StyledLabel>
-            <StyledHelper>Password</StyledHelper>
+            <StyledHelper>Contraseña</StyledHelper>
             <StyledInput
               type="password"
               value={userPassword}
               onChange={(event) => setUserPassword(event.target.value)}
-              placeholder="write your password here"
+              placeholder="Escribe tu contraseña aqui"
               required
             />
           </StyledLabel>
           <SubmitWrapper>
             <SubmitButton type="submit">
-              <h4>Log in</h4>
+              <h4>Ingreso</h4>
             </SubmitButton>
           </SubmitWrapper>
         </LoginCard>
@@ -123,4 +125,7 @@ const LoginCard = styled.form`
 
 const LogoWrapper = styled.div`
   width: 330px;
+  display: flex;
+  justify-self: center;
+  text-align: center;
 `;
